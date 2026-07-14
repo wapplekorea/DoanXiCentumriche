@@ -18,7 +18,18 @@
     @media(max-width:940px){.form-wrap{grid-template-columns:1fr}.visit .form-side{padding:26px}.visit .form-side h2{font-size:36px}.consult-form{padding:24px}.consult-form .form-grid{grid-template-columns:1fr}}
   .unit-six-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}.unit-equal{display:flex;flex-direction:column;min-height:0}.unit-imgbox{height:330px;background:#f6f3ee;display:flex;align-items:center;justify-content:center;overflow:hidden}.unit-imgbox img{width:100%;height:100%;object-fit:contain;background:#f6f3ee}.unit-equal .caption{min-height:92px;display:flex;flex-direction:column;justify-content:center;gap:4px}.unit-equal .caption b{display:block;font-size:19px}.unit-equal .caption span{display:block;font-size:14px;color:#dfe9e4;line-height:1.45}.unit-card{border:0;padding:0;border-radius:28px;overflow:hidden;background:#071512;box-shadow:var(--shadow);cursor:pointer;text-align:left}.unit-card:hover{transform:translateY(-3px);transition:.18s ease}.unit-card img{width:100%;height:auto;object-fit:contain}.unit-note{margin-top:18px;color:#606962;font-weight:700;line-height:1.65}
   @media(max-width:940px){.unit-six-grid{grid-template-columns:1fr}.unit-imgbox{height:280px}.unit-equal .caption{min-height:auto}}
-  </style>
+  
+  /* 개인정보 처리방침 모달 */
+  #privacy-modal{position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:9999;display:none;align-items:center;justify-content:center;padding:20px}
+  #privacy-modal.open{display:flex}
+  #privacy-modal .pm-box{background:#0d1b14;border:1px solid rgba(198,161,91,.25);border-radius:20px;padding:40px 48px;max-width:680px;width:100%;max-height:85vh;overflow-y:auto;color:#d8e4dc;position:relative}
+  #privacy-modal h2{font-size:22px;color:#fff;margin:0 0 24px;padding-bottom:16px;border-bottom:1px solid rgba(255,255,255,.1)}
+  #privacy-modal h3{font-size:14px;font-weight:900;color:#c6a15b;letter-spacing:.08em;margin:20px 0 6px}
+  #privacy-modal p{font-size:14px;line-height:1.75;margin:0 0 4px;color:#b0c4bc}
+  #privacy-modal .pm-close{position:absolute;top:16px;right:20px;background:none;border:none;color:#fff;font-size:22px;cursor:pointer;line-height:1}
+  @media(max-width:600px){#privacy-modal .pm-box{padding:28px 20px}}
+
+</style>
 </head>
 <body>
   <div class="topline"><div class="wrap"><span>도안 생활권에 입성하는 브랜드 대단지</span><span>분양상담 · 방문예약 · 실입주·투자 문의 1800-3688</span></div></div>
@@ -77,7 +88,7 @@
 
   <div class="modal" id="modal"><button type="button">닫기</button><img alt="확대 이미지"></div>
   <div class="sticky"><a class="tel" href="tel:18003688">전화상담</a><a class="res" href="#visit">상담신청</a></div>
-  <footer><div class="wrap">본 페이지는 도안자이 센텀리체 분양 상담 안내용 랜딩페이지입니다. 세부 공급조건, 분양가, 실입주·투자, 계약 조건, 일정은 상담 시점과 공식 안내 기준에 따라 달라질 수 있습니다. 대표 상담번호 1800-3688.</div></footer>
+  <footer><div class="wrap">본 페이지는 도안자이 센텀리체 분양 상담 안내용 랜딩페이지입니다. 세부 공급조건, 분양가, 실입주·투자, 계약 조건, 일정은 상담 시점과 공식 안내 기준에 따라 달라질 수 있습니다. 대표 상담번호 1800-3688. &nbsp;|&nbsp; <a href="#" onclick="event.preventDefault();document.getElementById('privacy-modal').classList.add('open')" style="color:#9d7b39;text-decoration:underline;text-underline-offset:3px">개인정보 처리방침</a></div></footer>
   <script>
     const modal=document.getElementById('modal');
     if(modal){
@@ -115,5 +126,35 @@
       });
     });
   </script>
+
+  <!-- 개인정보 처리방침 모달 -->
+  <div id="privacy-modal" role="dialog" aria-modal="true" aria-label="개인정보 처리방침">
+    <div class="pm-box">
+      <button class="pm-close" onclick="document.getElementById('privacy-modal').classList.remove('open')" aria-label="닫기">✕</button>
+      <h2>개인정보 처리방침</h2>
+      <p>본 홈페이지 운영사(이하 "회사")는 도안자이 센텀리체 분양 상담 서비스 운영을 위해 아래와 같이 개인정보를 처리합니다.</p>
+
+      <h3>1. 수집하는 개인정보 항목</h3>
+      <p>성명, 연락처, 관심 타입, 방문 희망일, 문의 내용</p>
+
+      <h3>2. 수집 및 이용 목적</h3>
+      <p>분양 상담 안내, 방문예약 접수, 분양 관련 정보 제공</p>
+
+      <h3>3. 보유 및 이용 기간</h3>
+      <p>분양 완료 시까지. 단, 관계 법령에 따라 보존이 필요한 경우 해당 기간 보유합니다.</p>
+
+      <h3>4. 제3자 제공</h3>
+      <p>원칙적으로 수집한 개인정보를 제3자에게 제공하지 않습니다.</p>
+
+      <h3>5. 정보주체의 권리</h3>
+      <p>본인의 개인정보에 대한 열람·정정·삭제·처리정지를 요청할 수 있습니다.<br>문의: 1800-3688</p>
+    </div>
+  </div>
+  <script>
+    document.getElementById('privacy-modal').addEventListener('click', function(e){
+      if(e.target===this) this.classList.remove('open');
+    });
+  </script>
+
 </body>
 </html>
