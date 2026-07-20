@@ -297,5 +297,11 @@
     });
   </script>
 
+  <script>
+  document.querySelectorAll('input[type="date"]').forEach(function(el){
+    el.addEventListener('click',function(){try{this.showPicker();}catch(e){}});
+    el.style.cursor='pointer';
+  });
+  </script>
 </body>
 </html>
